@@ -3,6 +3,9 @@
 ## About
 Update Perkembangan Belajar laravel 8
 
+## Proses
+    1. Model, Collection dan Controller
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
