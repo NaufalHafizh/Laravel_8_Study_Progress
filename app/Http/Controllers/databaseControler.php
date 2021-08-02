@@ -23,7 +23,7 @@ class databaseControler extends Controller
         return view('singgle_post', [
 
             "title" => "Singgle Post",
-            "baru" => database::temukan($id_tulisan)
+            "baru" => database::find($id_tulisan)
         ]);
     }
 }

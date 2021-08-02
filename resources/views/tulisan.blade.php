@@ -7,10 +7,10 @@
 
     @foreach ($tulisan_post as $post)
         <h2>
-            <a href="/tulisan/{{ $post["id_tulisan"] }}"> {{ $post["judul"] }}</a>
+            <a href="/tulisan/{{ $post->id }}"> {{ $post->judul }}</a>
         </h2>
         <p>{{ $post["pengarang"] }}, {{ $post["tanggal"] }}</p>
-        <p class="lead"> {{ $post["isi"] }}</p>
+        <p class="lead"> {{ $post->excerpt }}</p>
         <br>
     @endforeach
 
