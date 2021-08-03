@@ -16,10 +16,11 @@ class CreateDatabasesTable extends Migration
         Schema::create('databases', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
+            $table->string('slug')->unique();
             $table->string('pengarang');
             $table->text('excerpt');
             $table->text('isi');
-            $table->timestamp('tanggal');
+            $table->timestamp('tanggal')->nullable();
             $table->timestamps();
         });
     }

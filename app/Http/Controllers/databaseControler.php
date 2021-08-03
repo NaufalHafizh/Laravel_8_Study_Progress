@@ -17,13 +17,13 @@ class databaseControler extends Controller
         ]);
     }
 
-    public function tampilkan($id_tulisan)
+    public function tampilkan(database $post)
     {
 
         return view('singgle_post', [
 
             "title" => "Singgle Post",
-            "baru" => database::find($id_tulisan)
+            "baru" => $post
         ]);
     }
 }

@@ -36,4 +36,4 @@ Route::get('/about', function () {
 
 //Controller
 Route::get('/tulisan', [databaseControler::class, 'index']);
-Route::get('tulisan/{id_tulisan}', [databaseControler::class, 'tampilkan']);
+Route::get('/tulisan/{post:slug}', [databaseControler::class, 'tampilkan']);
