@@ -3,6 +3,7 @@
 use App\Models\database;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\databaseControler;
+use App\Models\kategori;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,22 @@ Route::get('/about', function () {
 //Controller
 Route::get('/tulisan', [databaseControler::class, 'index']);
 Route::get('/tulisan/{post:slug}', [databaseControler::class, 'tampilkan']);
+
+Route::get('/Kategoris', function () {
+
+    return view('kategoris', [
+
+        'title' => 'Jenis Kategori',
+        'kategoris' => kategori::all()
+    ]);
+});
+
+Route::get('/kategori/{kategori:slug}', function (kategori $kategori) {
+
+    return view('kategori_S', [
+
+        'title' => $kategori->nama,
+        'isi' => $kategori->Database,
+        'kategoris' => $kategori->nama
+    ]);
+});

@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Database extends Model
+class kategori extends Model
 {
     use HasFactory;
-    // protected $fillable = ['judul', 'pengarang', 'excerpt', 'isi'];
+
     protected $guarded = ['id'];
 
-    public function kategori()
+    public function database()
     {
-        return $this->belongsTo(kategori::class);
+        return $this->hasMany(database::class);
     }
 }
