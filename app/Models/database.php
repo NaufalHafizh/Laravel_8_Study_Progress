@@ -15,4 +15,9 @@ class Database extends Model
     {
         return $this->belongsTo(kategori::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
