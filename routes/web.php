@@ -40,30 +40,11 @@ Route::get('/about', function () {
 Route::get('/tulisan', [databaseControler::class, 'index']);
 Route::get('/tulisan/{post:slug}', [databaseControler::class, 'tampilkan']);
 
-Route::get('/Kategoris', function () {
+//view all category
+Route::get('/Kategoris', [databaseControler::class, 'kategoris']);
 
-    return view('kategoris', [
+//kategori tulisan
+Route::get('/kategori/{kategori:slug}', [databaseControler::class, 'kategori']);
 
-        'title' => 'Jenis Kategori',
-        'kategoris' => kategori::all()
-    ]);
-});
-
-Route::get('/kategori/{kategori:slug}', function (kategori $kategori) {
-
-    return view('kategori_S', [
-
-        'title' => $kategori->nama,
-        'isi' => $kategori->Database,
-        'kategoris' => $kategori->nama
-    ]);
-});
-
-Route::get('/penulis/{penulis:username}', function (User $penulis) {
-
-    return view('tulisan', [
-
-        'title' => "Tulisan User",
-        'isi' => $penulis->Database,
-    ]);
-});
+//penulis
+Route::get('/penulis/{penulis:username}', [databaseControler::class, 'penulis']);
