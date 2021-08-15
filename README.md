@@ -9,6 +9,7 @@ Update Perkembangan Belajar laravel 8
     3. Database Model
     4. Database Category & Eloquent Relationship
     5. Database Seeder
+    5. Factory & Faker
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
