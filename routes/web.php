@@ -38,6 +38,8 @@ Route::get('/about', function () {
 
 //Controller
 Route::get('/tulisan', [databaseControler::class, 'index']);
+
+//slug
 Route::get('/tulisan/{post:slug}', [databaseControler::class, 'tampilkan']);
 
 //view all category
