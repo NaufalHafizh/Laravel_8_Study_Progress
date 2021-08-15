@@ -4,6 +4,7 @@ use App\Models\database;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\databaseControler;
 use App\Models\kategori;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,5 +56,14 @@ Route::get('/kategori/{kategori:slug}', function (kategori $kategori) {
         'title' => $kategori->nama,
         'isi' => $kategori->Database,
         'kategoris' => $kategori->nama
+    ]);
+});
+
+Route::get('/penulis/{penulis:username}', function (User $penulis) {
+
+    return view('tulisan', [
+
+        'title' => "Tulisan User",
+        'isi' => $penulis->Database,
     ]);
 });

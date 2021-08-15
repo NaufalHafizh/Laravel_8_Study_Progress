@@ -13,7 +13,7 @@ class databaseControler extends Controller
         return view('tulisan', [
 
             "title" => "TULISAN",
-            "tulisan_post" => database::all()
+            "isi" => database::all()
         ]);
     }
 

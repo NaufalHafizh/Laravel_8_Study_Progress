@@ -7,12 +7,12 @@
 
     @foreach ($isi as $post)
   
-        <h2>
+        <h3>
             <a class="text-decoration-none" href="/tulisan/{{ $post->slug }}"> {{ $post->judul }}</a>
-        </h2>
-        <p>{{ $post->user->name }}, {{ $post["tanggal"] }}</p>
+        </h3>
+        <p>{{ $post->penulis->name }}, {{ $post["tanggal"] }}</p>
         <p class="lead"> {!! $post->excerpt !!}</p>
-        <b
+        <br>
      
     @endforeach
  
