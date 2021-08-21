@@ -2,7 +2,7 @@
 
 @section('container')
 
-    <h1>Selamat datang di tulisan</h1>
+    <h1>{{ $title }}</h1>
     <br>
 
     @foreach ($isi as $post)
