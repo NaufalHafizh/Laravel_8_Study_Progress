@@ -28,15 +28,22 @@ class DatabaseSeeder extends Seeder
 
         kategori::create([
 
-            'nama' => "Pemrograman",
-            'slug' => "Pemrograman"
+            'nama' => "Programming",
+            'slug' => "Programming"
 
         ]);
 
         kategori::create([
 
-            'nama' => "Sosial",
+            'nama' => "Social",
             'slug' => "Sosial"
+
+        ]);
+
+        kategori::create([
+
+            'nama' => "Culture",
+            'slug' => "Culture"
 
         ]);
 
