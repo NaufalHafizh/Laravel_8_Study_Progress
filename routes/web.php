@@ -20,8 +20,8 @@ use App\Models\User;
 //closures 
 Route::get('/', function () {
     return view('home', [
-
-        "title" => "HOME"
+        "title" => "HOME",
+        "active" => "Home"
     ]);
 });
 
@@ -29,6 +29,7 @@ Route::get('/about', function () {
     return view('about', [
 
         "title" => "ABOUT",
+        "active" => "Blog",
         "nama" => "Muhammad Naufal Hafizh",
         "biasa" => "main game dan koding berbasis web",
         "image" => "gambar.jpg"
