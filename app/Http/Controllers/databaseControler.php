@@ -13,9 +13,9 @@ class databaseControler extends Controller
     {
 
         return view('tulisan', [
-
+            "active" => "TULISAN",
             "title" => "Semua Tulisan",
-            "isi" => database::with(['penulis', 'kategori'])->latest()->get()
+            "isi" => database::latest()->get()
         ]);
     }
 
@@ -24,6 +24,7 @@ class databaseControler extends Controller
 
         return view('singgle_post', [
 
+            "active" => "TULISAN",
             "title" => "Singgle Post",
             "baru" => $post
         ]);
@@ -34,6 +35,7 @@ class databaseControler extends Controller
 
         return view('kategoris', [
 
+            "active" => "KATEGORIS",
             'title' => 'Jenis Kategori',
             'kategoris' => kategori::all()
         ]);
@@ -44,6 +46,7 @@ class databaseControler extends Controller
 
         return view('tulisan', [
 
+            "active" => "KATEGORIS",
             'title' => "Tulisan Dengan Kategori : $kategori->nama",
             'isi' => $kategori->Database->load('penulis', 'kategori')
         ]);
@@ -53,6 +56,7 @@ class databaseControler extends Controller
     {
         return view('tulisan', [
 
+            "active" => "KATEGORIS",
             'title' => "Tulisan Dari Penulis : $penulis->name",
             'isi' => $penulis->Database->load('penulis', 'kategori')
         ]);
