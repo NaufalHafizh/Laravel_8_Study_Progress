@@ -30,7 +30,10 @@
             <a class="nav-link {{ ($title === "ABOUT") ? 'active' : '' }}" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($title === "TULISAN") ? 'active' : '' }}" href="/tulisan">Tulisan</a>
+            <a class="nav-link {{ ($active === "TULISAN") ? 'active' : '' }}" href="/tulisan">Tulisan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ ($active === "KATEGORIS") ? 'active' : '' }}" href="/Kategoris">Kategori</a>
           </li>
         </ul>
       </div>
