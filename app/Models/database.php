@@ -10,6 +10,7 @@ class Database extends Model
     use HasFactory;
     // protected $fillable = ['judul', 'pengarang', 'excerpt', 'isi'];
     protected $guarded = ['id'];
+    protected $with = ['penulis', 'kategori'];
 
     public function kategori()
     {
