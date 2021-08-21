@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\database;
-use App\Models\kategori;
 use App\Models\User;
+use App\Models\kategori;
 
 class databaseControler extends Controller
 {
@@ -14,8 +14,8 @@ class databaseControler extends Controller
 
         return view('tulisan', [
 
-            "title" => "TULISAN",
-            "isi" => database::all()
+            "title" => "Semua Tulisan",
+            "isi" => database::with(['penulis', 'kategori'])->latest()->get()
         ]);
     }
 
@@ -42,11 +42,10 @@ class databaseControler extends Controller
     public function kategori(kategori $kategori)
     {
 
-        return view('kategori_S', [
+        return view('tulisan', [
 
-            'title' => $kategori->nama,
-            'isi' => $kategori->Database,
-            'kategoris' => $kategori->nama
+            'title' => "Tulisan Dengan Kategori : $kategori->nama",
+            'isi' => $kategori->Database->load('penulis', 'kategori')
         ]);
     }
 
@@ -54,8 +53,8 @@ class databaseControler extends Controller
     {
         return view('tulisan', [
 
-            'title' => "Tulisan User",
-            'isi' => $penulis->Database,
+            'title' => "Tulisan Dari Penulis : $penulis->name",
+            'isi' => $penulis->Database->load('penulis', 'kategori')
         ]);
     }
 }
