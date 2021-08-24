@@ -12,10 +12,21 @@ class databaseControler extends Controller
     public function index()
     {
 
+        $title = ' ';
+        if (request('kategori')) {
+            $kategori = kategori::firstWhere('slug', request('kategori'));
+            $title = ' Dalam ' . $kategori->nama;
+        }
+
+        if (request('penulis')) {
+            $penulis = User::firstWhere('username', request('penulis'));
+            $title = ' Dalam ' . $penulis->name;
+        }
+
         return view('tulisan', [
-            "active" => "TULISAN",
-            "title" => "Semua Tulisan",
-            "isi" => database::latest()->get()
+            "active" => "All Post",
+            "title" => "Semua Tulisan" . $title,
+            "isi" => database::latest()->Filter(request(['search', 'kategori', 'penulis']))->paginate(7)->withQueryString()
         ]);
     }
 

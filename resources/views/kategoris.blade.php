@@ -11,7 +11,7 @@
         <div class="row">
             @foreach ($kategoris as $post)
                 <div class="col-md-4">
-                    <a href="/kategori/{{ $post->slug }}">
+                    <a href="/tulisan?kategori={{ $post->slug }}">
                         <div class="card text-light w-75">
                             <img src="https://source.unsplash.com/700x700?{{ $post->nama }}" class="card-img-top" alt="{{ $post->nama }}">
                             <div class="card-img-overlay">
