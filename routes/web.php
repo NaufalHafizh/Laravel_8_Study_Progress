@@ -3,6 +3,8 @@
 use App\Models\database;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\databaseControler;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Models\kategori;
 use App\Models\User;
 
@@ -51,3 +53,12 @@ Route::get('/kategori/{kategori:slug}', [databaseControler::class, 'kategori']);
 
 //penulis
 Route::get('/penulis/{penulis:username}', [databaseControler::class, 'penulis']);
+
+//login
+Route::get('/login', [LoginController::class, 'index']);
+
+//register
+Route::get('/register', [RegisterController::class, 'index']);
+
+//usser reg
+Route::post('/register', [RegisterController::class, 'store']);

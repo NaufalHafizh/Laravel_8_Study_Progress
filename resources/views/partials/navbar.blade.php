@@ -35,6 +35,9 @@
           <li class="nav-item">
             <a class="nav-link {{ ($active === "KATEGORIS") ? 'active' : '' }}" href="/Kategoris">Kategori</a>
           </li>
+          <li>
+            <a class="nav-link btn bg-primary {{ ($active === "Login") ? 'active' : '' }}" href="/login">Login</a>
+          </li>
         </ul>
       </div>
     </div>
