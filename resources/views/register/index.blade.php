@@ -3,14 +3,6 @@
 @section('container')
     <div id="box-register" class="row justify-content-center">
         <div class="col-lg-4">
-
-            @if (session()->has('berhasil'))
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    {{ session('berhasil') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-
             <main class="form-register">
                 <form action="/register" method="POST">
 
