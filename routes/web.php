@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardPostController;
 use App\Models\database;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\databaseControler;
@@ -55,10 +56,25 @@ Route::get('/kategori/{kategori:slug}', [databaseControler::class, 'kategori']);
 Route::get('/penulis/{penulis:username}', [databaseControler::class, 'penulis']);
 
 //login
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'auth']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 //register
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 
 //usser reg
 Route::post('/register', [RegisterController::class, 'store']);
+
+
+
+Route::get('/dashboard', function () {
+
+    return view('dashboard.index');
+})->middleware('auth');
+
+//Auto Slug
+Route::get('/dashboard/posts/CheckSlug', [DashboardPostController::class, 'CheckSlug']);
+
+//create, update, deelete, read
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
